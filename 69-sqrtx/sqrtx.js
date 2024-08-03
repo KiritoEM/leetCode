@@ -9,7 +9,7 @@ var mySqrt = function (x) {
     let mid;
 
     while (start <= end) {
-        mid = Math.floor(start + (end - start) / 2);
+        mid = Math.floor((start + end) / 2);
 
         if (BigInt(mid) * BigInt(mid) === BigInt(x)) {
             return mid;
