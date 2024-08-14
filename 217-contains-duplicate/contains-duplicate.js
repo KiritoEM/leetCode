@@ -3,25 +3,14 @@
  * @return {boolean}
  */
 var containsDuplicate = function (nums) {
-    let obj = {};
+    let seen = new Set();
 
     for (let i = 0; i < nums.length; i++) {
-        if (obj[nums[i]]) {
-            obj[nums[i]]++;
+        if (seen.has(nums[i])) {
+            return true;
         }
-        else {
-            obj[nums[i]] = 1;
-        }
+        seen.add(nums[i]);
     }
 
-    let state = [];
-
-    Object.values(obj).forEach((n) => {
-        if (n > 1) {
-            state.push(true)
-        }
-    });
-
-    return state.includes(true);
-
+    return false;
 };
