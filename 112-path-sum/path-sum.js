@@ -12,16 +12,24 @@
  * @return {boolean}
  */
 var hasPathSum = function (root, targetSum) {
+    //pointeur de l' arbre
+    let p = root;
+
     //arret de la fonction récursive
-    if (root === null) {
+    if (p === null) {
         return false;
     }
 
     //si la profondeur est atteinte
-    if (root.left === null && root.right === null) {
-        return root.val === targetSum;
+    if (p.left === null && p.right === null) {
+        return p.val === targetSum;
     }
 
     //parcours récursive de l' arbre
-    return hasPathSum(root.left, targetSum - root.val) || hasPathSum(root.right, targetSum - root.val)
+    if (hasPathSum(p.left, targetSum - p.val) === true) {
+        return hasPathSum(p.left, targetSum - p.val)
+    }
+    else {
+        return hasPathSum(p.right, targetSum - p.val)
+    }
 };
