@@ -11,6 +11,8 @@ var majorityElement = function (nums) {
             candidate = num;
         }
         count += (num === candidate) ? 1 : -1;
+
+        if (count > nums.length / 2) break;
     }
 
     return candidate;
