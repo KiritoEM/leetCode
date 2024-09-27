@@ -10,13 +10,27 @@
  * @param {TreeNode} root
  * @return {number}
  */
-var maxDepth = function (root) {
+var maxDepth = function(root) {
     if (root === null) {
-        return 0; //profondeur 0 (break)
+        return 0; // profondeur 0
     }
 
-    let leftDepth = maxDepth(root.left); //prodondeur gauche
-    let rightDepth = maxDepth(root.right); //profondeur droite
+    let queue = [root]; // par défaut le root
+    let depth = 0;
 
-    return Math.max(leftDepth, rightDepth) + 1; // +1 qui est le noeud actuel
+    while (queue.length > 0) {
+        let levelSize = queue.length;
+        for (let i = 0; i < levelSize; i++) {
+            let node = queue.shift();
+            if (node.left !== null) {
+                queue.push(node.left);
+            }
+            if (node.right !== null) {
+                queue.push(node.right);
+            }
+        }
+        depth++;
+    }
+
+    return depth;
 };
