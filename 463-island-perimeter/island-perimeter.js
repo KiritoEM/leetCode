@@ -28,7 +28,8 @@ var islandPerimeter = function (grid) {
     let row = grid.length;
     let perimeter = 0;
 
-    let visited = Array.from(Array(row), () => new Array(col).fill(false)); //initialize visited
+    let visited = Array.from({ length: row }, () => new Array(col).fill(false)); //initialize visited
+
 
     const dfs = (x, y) => {
         if (!(checkCell(row, col, grid, x, y) && !visited[x][y])) {
