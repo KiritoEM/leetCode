@@ -23,6 +23,7 @@ var getMinimumDifference = function (root) {
         if (prev !== null) {
             minDiff = Math.min(minDiff, node.val - prev);
         }
+
         prev = node.val;
 
         inorderTraversal(node.right);
