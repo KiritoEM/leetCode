@@ -3,20 +3,25 @@
  * @return {number}
  */
 var minLength = function (s) {
-    let stack = [];
+    let res = "";
+    let i = 0; j = i + 1;
 
-    for (let char of s) {
-        if (stack.length > 0) {
-            let top = stack[stack.length - 1];
-            if ((top === 'A' && char === 'B') || (top === 'C' && char === 'D')) {
-                stack.pop();
-            } else {
-                stack.push(char);
-            }
-        } else {
-            stack.push(char);
+    while (i < s.length && j < s.length) {
+        if (s[i] === "A" && s[j] === "B") {
+            s = s.replace('AB', '');
+            i = 0;
+            j = i + 1;
+        }
+        else if (s[i] === "C" && s[j] === "D") {
+            s = s.replace('CD', '');
+            i = 0;
+            j = i + 1;
+        }
+        else {
+            i++;
+            j++;
         }
     }
 
-    return stack.length;
+    return s.length;
 };
