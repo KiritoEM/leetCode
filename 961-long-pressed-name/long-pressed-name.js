@@ -8,7 +8,6 @@ var isLongPressedName = function (name, typed) {
     let t_p = 0;
 
     while (t_p < typed.length) {
-        console.log(n_p, name.length)
         if (name[n_p] === typed[t_p]) {
             n_p++;
             t_p++;
