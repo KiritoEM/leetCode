@@ -6,7 +6,7 @@ var removeDuplicates = function (s) {
     let stack = [];
 
     for (let char of s) {
-        if (stack[stack.length - 1] === char) {
+        if (stack.at(-1) === char) {
             stack.pop();
         }
         else {
