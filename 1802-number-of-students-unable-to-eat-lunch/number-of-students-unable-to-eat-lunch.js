@@ -6,7 +6,7 @@
 var countStudents = function (std, sdw) {
     let unable = 0;
 
-    while (std.length) {
+    while (std.length > 0) {
         if (std[0] === sdw[0]) {
             std.shift();
             sdw.shift();
