@@ -2,23 +2,22 @@
  * @param {string} s
  * @return {boolean}
  */
-
 var isValid = function (s) {
-    let tab = [];
-    for (let i = 0; i < s.length; i++) {
-        let char = s[i];
-        if (char === '(' || char === '[' || char === '{') {
-            tab.push(char);
-        } else {
-            if (tab.length === 0) return false;
+    let stack = [];
+    let brackets = {
+        ")": "(",
+        "]": "[",
+        "}": "{",
+    }
 
-            let lastChar = tab.pop();
-            if ((char === ')' && lastChar !== '(') ||
-                (char === ']' && lastChar !== '[') ||
-                (char === '}' && lastChar !== '{')) {
-                return false;
-            }
+    for (let char of s) {
+        if (char === "(" || char === "[" || char === "{") {
+            stack.push(char);
+        }
+        else if (stack.length === 0 || brackets[char] !== stack.pop()) {
+            return false;
         }
     }
-    return tab.length === 0;
+
+    return stack.length === 0;
 };
