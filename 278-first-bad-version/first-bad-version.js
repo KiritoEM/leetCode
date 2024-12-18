@@ -25,7 +25,6 @@ var solution = function (isBadVersion) {
         while (true) {
             nbr = Math.floor((end + start) / 2)
             val = isBadVersion(nbr);
-            console.log("val: ", nbr)
             if (val) {
                 if (!isBadVersion(nbr - 1))
                     return nbr;
